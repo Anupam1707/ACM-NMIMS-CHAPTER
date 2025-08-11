@@ -39,3 +39,20 @@ window.addEventListener('scroll', () => {
   let offset = window.scrollY * 0.4;
   heroContent.style.transform = `translateY(${offset}px)`;
 });
+
+
+// Existing code above...
+
+// Scroll reveal effect
+const reveals = document.querySelectorAll('.reveal');
+
+const revealOnScroll = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+      observer.unobserve(entry.target); // Trigger only once
+    }
+  });
+}, { threshold: 0.1 });
+
+reveals.forEach((el) => revealOnScroll.observe(el));
