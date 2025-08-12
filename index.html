@@ -5,26 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ACM Student Chapter - NMIMS Indore</title>
   
-  <!-- Tailwind CSS CDN for modern styling -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Google Fonts - Inter is a clean, modern font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Font Awesome for social media icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
-  <!-- Three.js for the interactive background -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   
   <style>
-    /* Custom CSS for animations and layout overrides */
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #0d1117; /* Dark background */
-      color: #c9d1d9; /* Light text color */
+      background-color: #0d1117;
+      color: #c9d1d9;
       overflow-x: hidden;
     }
     .hero-bg {
@@ -51,7 +46,6 @@
       transform: translateY(20px);
     }
     
-    /* Keyframes for animations */
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -61,7 +55,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
     
-    /* Scroll-to-top button */
     #scrollToTopBtn {
       position: fixed;
       bottom: 2rem;
@@ -76,7 +69,6 @@
       opacity: 1;
     }
     
-    /* Responsive menu for mobile */
     .nav-links {
       transition: transform 0.3s ease-in-out;
     }
@@ -103,7 +95,6 @@
 </head>
 <body class="bg-[#0d1117] text-[#c9d1d9] leading-relaxed">
 
-  <!-- Scroll-to-Top Button -->
   <button id="scrollToTopBtn" class="p-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full shadow-lg transition-colors">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up">
       <path d="m18 15-6-6-6 6"/>
@@ -111,11 +102,10 @@
     </svg>
   </button>
 
-  <!-- Header and Navigation -->
   <header class="sticky top-0 z-50 bg-[#0d1117]/80 backdrop-blur-sm shadow-md">
     <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
       <a href="index.html" class="logo">
-        <img src="https://raw.githubusercontent.com/Anupam1707/ACM-NMIMS-CHAPTER/refs/heads/main/acm_logo.svg" alt="ACM NMIMS Logo" class="h-14 w-auto">
+        <img src="assets/images/logo.png" alt="ACM NMIMS Logo" class="h-14 w-auto">
       </a>
       <ul class="nav-links hidden md:flex space-x-8 text-lg font-medium">
         <li><a href="index.html#home" class="hover:text-indigo-400 transition-colors">Home</a></li>
@@ -134,9 +124,7 @@
     </nav>
   </header>
 
-  <!-- Hero Section with Interactive 3D Background -->
   <section id="home" class="relative min-h-[60vh] md:min-h-[80vh] flex items-center justify-center text-center overflow-hidden">
-    <!-- Three.js Canvas for the particle background -->
     <canvas id="hero-bg" class="hero-bg"></canvas>
     
     <div class="container mx-auto px-4 hero-content text-white">
@@ -151,7 +139,6 @@
   </section>
 
   <main class="container mx-auto px-4 py-16">
-    <!-- About Section -->
     <section id="about" class="section mb-20 fade-up">
       <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-indigo-400">About Us</h2>
       <p class="text-lg text-center max-w-3xl mx-auto leading-relaxed">
@@ -159,25 +146,24 @@
       </p>
     </section>
 
-    <!-- Events Section -->
     <section id="events" class="section mb-20 fade-up [animation-delay:0.2s]">
       <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-indigo-400">Upcoming Events</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Event Card 1 -->
+
         <article class="card p-6 bg-[#161b22] rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
           <h3 class="text-2xl font-bold mb-2">Coding Workshop: Web Dev 101</h3>
           <time datetime="2025-08-25" class="text-sm text-gray-400">Aug 25, 2025</time>
           <p class="mt-4 text-gray-300">Hands-on workshop covering HTML, CSS, and JavaScript basics.</p>
           <a href="#" class="btn-link mt-6 inline-block">Register &rarr;</a>
         </article>
-        <!-- Event Card 2 -->
+
         <article class="card p-6 bg-[#161b22] rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
           <h3 class="text-2xl font-bold mb-2">Tech Talk: AI Ethics</h3>
           <time datetime="2025-09-02" class="text-sm text-gray-400">Sep 02, 2025</time>
           <p class="mt-4 text-gray-300">Discussion with industry speakers on responsible AI development.</p>
           <a href="#" class="btn-link mt-6 inline-block">Register &rarr;</a>
         </article>
-        <!-- Event Card 3 -->
+
         <article class="card p-6 bg-[#161b22] rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
           <h3 class="text-2xl font-bold mb-2">Hackathon 24H</h3>
           <time datetime="2025-10-10" class="text-sm text-gray-400">Oct 10, 2025</time>
@@ -187,29 +173,29 @@
       </div>
     </section>
 
-    <!-- Team Section -->
+  
     <section id="team" class="section mb-20 fade-up [animation-delay:0.4s]">
       <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-indigo-400">Core Team</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-        <!-- Core Member 1 -->
+
         <article class="card team-member text-center p-6 bg-[#161b22] rounded-lg shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
           <img src="https://placehold.co/150x150/24292e/c9d1d9?text=KP" alt="Karishma Parwani" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-indigo-500"/>
           <h3 class="text-xl font-bold">Karishma Parwani</h3>
           <p class="text-gray-400">Core Member</p>
         </article>
-        <!-- Core Member 2 -->
+
         <article class="card team-member text-center p-6 bg-[#161b22] rounded-lg shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
           <img src="https://placehold.co/150x150/24292e/c9d1d9?text=KJ" alt="Kanak Jaiswal" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-indigo-500"/>
           <h3 class="text-xl font-bold">Kanak Jaiswal</h3>
           <p class="text-gray-400">Core Member</p>
         </article>
-        <!-- Core Member 3 -->
+
         <article class="card team-member text-center p-6 bg-[#161b22] rounded-lg shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
           <img src="https://placehold.co/150x150/24292e/c9d1d9?text=VN" alt="Vanshika Nagar" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-indigo-500"/>
           <h3 class="text-xl font-bold">Vanshika Nagar</h3>
           <p class="text-gray-400">Core Member</p>
         </article>
-        <!-- Link to full team page -->
+
         <article class="card team-member text-center p-6 bg-[#161b22] rounded-lg shadow-lg transition-shadow duration-300 transform hover:-translate-y-1 flex flex-col items-center justify-center">
           <div class="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl text-indigo-400">
              <i class="fas fa-users"></i>
@@ -220,7 +206,7 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
+
     <section id="contact" class="section fade-up [animation-delay:0.6s]">
       <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-indigo-400">Contact Us</h2>
       <div class="text-center">
@@ -240,20 +226,16 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="bg-[#161b22] py-8 text-center mt-20">
     <div class="container mx-auto px-4">
       <p class="text-gray-400">&copy; 2025 ACM Student Chapter - NMIMS Indore. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- JavaScript for interactivity -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Get all elements with the 'fade-up' class
       const fadeUpElements = document.querySelectorAll('.fade-up');
       
-      // Function to check if an element is in the viewport
       const isElementInViewport = (el) => {
         const rect = el.getBoundingClientRect();
         return (
@@ -262,7 +244,6 @@
         );
       };
       
-      // Function to handle the scroll event
       const handleScroll = () => {
         for (const el of fadeUpElements) {
           if (isElementInViewport(el) && !el.classList.contains('animated')) {
@@ -274,20 +255,17 @@
         }
       };
       
-      // Set a small delay for the initial load to ensure animations work correctly
       setTimeout(() => {
         handleScroll();
       }, 100);
       
       window.addEventListener('scroll', handleScroll);
       
-      // Mobile navigation toggle
       const navToggle = document.querySelector('.nav-toggle');
       const navLinks = document.querySelector('.nav-links');
       
       navToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
-        // Close the menu if a link is clicked
         const links = navLinks.querySelectorAll('a');
         links.forEach(link => {
           link.addEventListener('click', () => {
@@ -296,7 +274,6 @@
         });
       });
       
-      // Scroll to top button functionality
       const scrollToTopBtn = document.getElementById('scrollToTopBtn');
       window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
@@ -312,13 +289,11 @@
         });
       });
       
-      // THREE.js Particle Background with Logo
       const canvas = document.getElementById('hero-bg');
       const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
       
-      // Resize renderer on window resize
       window.addEventListener('resize', () => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
@@ -327,19 +302,17 @@
       
       renderer.setSize(window.innerWidth, window.innerHeight);
       
-      // Add a placeholder logo as a textured plane
       const logoUrl = 'http://googleusercontent.com/file_content/1';
       const textureLoader = new THREE.TextureLoader();
       const logoTexture = textureLoader.load(logoUrl, (texture) => {
-        // Once the texture is loaded, create and add the logo plane
         const logoGeometry = new THREE.PlaneGeometry(10, 10);
         const logoMaterial = new THREE.MeshBasicMaterial({
           map: texture,
           transparent: true,
         });
         const logoMesh = new THREE.Mesh(logoGeometry, logoMaterial);
-        logoMesh.position.z = -15; // Position it behind the text
-        logoMesh.rotation.y = Math.PI * 0.1; // Add a slight rotation for a 3D feel
+        logoMesh.position.z = -15;
+        logoMesh.rotation.y = Math.PI * 0.1;
         scene.add(logoMesh);
       });
       
@@ -356,7 +329,7 @@
       particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
       
       const particleMaterial = new THREE.PointsMaterial({
-        color: 0x4f46e5, // Tailwind's indigo-500
+        color: 0x4f46e5,
         size: 0.5,
         transparent: true,
         opacity: 0.8
@@ -367,7 +340,6 @@
       
       camera.position.z = 5;
       
-      // Animation loop
       const animate = () => {
         requestAnimationFrame(animate);
         particleSystem.rotation.x += 0.0005;
@@ -378,8 +350,8 @@
       animate();
     });
   </script>
-
-  <!-- Tailwind-style utility classes for buttons and links -->
+  <script src="js/script.js"></script>
+  
   <style>
     .btn-primary {
       @apply px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-[#0d1117];
@@ -394,4 +366,3 @@
 
 </body>
 </html>
-

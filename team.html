@@ -5,23 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Team - ACM Student Chapter</title>
   
-  <!-- Tailwind CSS CDN for modern styling -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Google Fonts - Inter is a clean, modern font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Font Awesome for social media icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
   <style>
-    /* Custom CSS for animations and layout overrides */
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #0d1117; /* Dark background */
-      color: #c9d1d9; /* Light text color */
+      background-color: #0d1117;
+      color: #c9d1d9;
       overflow-x: hidden;
     }
     .hero-content {
@@ -40,7 +36,6 @@
       transform: translateY(20px);
     }
     
-    /* Keyframes for animations */
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -50,7 +45,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
     
-    /* Scroll-to-top button */
     #scrollToTopBtn {
       position: fixed;
       bottom: 2rem;
@@ -65,7 +59,6 @@
       opacity: 1;
     }
     
-    /* Responsive menu for mobile */
     .nav-links {
       transition: transform 0.3s ease-in-out;
     }
@@ -92,7 +85,6 @@
 </head>
 <body class="bg-[#0d1117] text-[#c9d1d9] leading-relaxed">
 
-  <!-- Scroll-to-Top Button -->
   <button id="scrollToTopBtn" class="p-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full shadow-lg transition-colors">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up">
       <path d="m18 15-6-6-6 6"/>
@@ -100,11 +92,10 @@
     </svg>
   </button>
 
-  <!-- Header and Navigation -->
   <header class="sticky top-0 z-50 bg-[#0d1117]/80 backdrop-blur-sm shadow-md">
-    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <nav class="container mx-auto px-4 py-4 bg-[#0d1117]/80 flex justify-between items-center">
       <a href="index.html" class="logo">
-        <img src="http://googleusercontent.com/file_content/1" alt="ACM NMIMS Logo" class="h-14 w-auto"/>
+        <img src="assets/images/logo.png" alt="ACM NMIMS Logo" class="h-14 w-auto"/>
       </a>
       <ul class="nav-links hidden md:flex space-x-8 text-lg font-medium">
         <li><a href="index.html" class="hover:text-indigo-400 transition-colors">Home</a></li>
@@ -123,7 +114,6 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
   <section class="min-h-[40vh] flex items-center justify-center text-center overflow-hidden">
     <div class="container mx-auto px-4 hero-content text-white">
       <h1 class="text-4xl md:text-6xl font-extrabold mb-4 fade-in [animation-delay:0.3s]">Our Team</h1>
@@ -132,7 +122,6 @@
   </section>
 
   <main class="container mx-auto px-4 py-16">
-    <!-- Faculty Coordinators Section -->
     <section id="faculty" class="section mb-20 fade-up">
       <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-indigo-400">Faculty Coordinators</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -154,7 +143,6 @@
       </div>
     </section>
 
-    <!-- Core Team Section -->
     <section id="core" class="section mb-20 fade-up [animation-delay:0.2s]">
       <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-indigo-400">Core Team</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -176,7 +164,6 @@
       </div>
     </section>
 
-    <!-- Leads Section -->
     <section id="leads" class="section mb-20 fade-up [animation-delay:0.4s]">
       <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-indigo-400">Leads</h2>
       <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
@@ -197,34 +184,33 @@
         </article>
         <article class="card team-member text-center p-6 bg-[#161b22] rounded-lg shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
           <img src="https://placehold.co/150x150/24292e/c9d1d9?text=BS" alt="Bhavya Shah" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-indigo-500"/>
+          <h3 class="text-xl font-bold">Toshan Dubey</h3>
+          <p class="text-gray-400">PR Lead</p>
+        </article>
+        <article class="card team-member text-center p-6 bg-[#161b22] rounded-lg shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
+          <img src="https://placehold.co/150x150/24292e/c9d1d9?text=BS" alt="Bhavya Shah" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-indigo-500"/>
           <h3 class="text-xl font-bold">Bhavya Shah</h3>
           <p class="text-gray-400">Social Media Lead</p>
         </article>
         <article class="card team-member text-center p-6 bg-[#161b22] rounded-lg shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
-          <div class="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center border-4 border-gray-600 border-dashed text-gray-500 text-4xl">
-             +
-          </div>
-          <h3 class="text-xl font-bold text-gray-500">Add Lead</h3>
-          <p class="text-gray-600">Finance Lead</p>
+          <img src="https://placehold.co/150x150/24292e/c9d1d9?text=BS" alt="Bhavya Shah" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-indigo-500"/>
+          <h3 class="text-xl font-bold">Heyrambh Damle</h3>
+          <p class="text-gray-400">Finance Lead</p>
         </article>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="bg-[#161b22] py-8 text-center mt-20">
     <div class="container mx-auto px-4">
       <p class="text-gray-400">&copy; 2025 ACM Student Chapter - NMIMS Indore. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- JavaScript for interactivity -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Get all elements with the 'fade-up' class
       const fadeUpElements = document.querySelectorAll('.fade-up');
       
-      // Function to check if an element is in the viewport
       const isElementInViewport = (el) => {
         const rect = el.getBoundingClientRect();
         return (
@@ -233,7 +219,6 @@
         );
       };
       
-      // Function to handle the scroll event
       const handleScroll = () => {
         for (const el of fadeUpElements) {
           if (isElementInViewport(el) && !el.classList.contains('animated')) {
@@ -245,20 +230,17 @@
         }
       };
       
-      // Set a small delay for the initial load to ensure animations work correctly
       setTimeout(() => {
         handleScroll();
       }, 100);
       
       window.addEventListener('scroll', handleScroll);
       
-      // Mobile navigation toggle
       const navToggle = document.querySelector('.nav-toggle');
       const navLinks = document.querySelector('.nav-links');
       
       navToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
-        // Close the menu if a link is clicked
         const links = navLinks.querySelectorAll('a');
         links.forEach(link => {
           link.addEventListener('click', () => {
@@ -267,7 +249,6 @@
         });
       });
       
-      // Scroll to top button functionality
       const scrollToTopBtn = document.getElementById('scrollToTopBtn');
       window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
@@ -285,7 +266,6 @@
     });
   </script>
 
-  <!-- Tailwind-style utility classes for buttons and links -->
   <style>
     .btn-primary {
       @apply px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-[#0d1117];
