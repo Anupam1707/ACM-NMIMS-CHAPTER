@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACM Student Chapter - NMIMS Indore</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0d1117;
+      color: #c9d1d9;
+      overflow-x: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .nav-toggle-icon {
+      color: #c9d1d9;
+    }
+    .fade-in {
+      animation: fadeIn 1s ease-out forwards;
+    }
+    .fade-up {
+      animation: fadeUp 0.8s ease-out forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    #scrollToTopBtn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 100;
+      display: none;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    #scrollToTopBtn.show {
+      display: block;
+      opacity: 1;
+    }
+    
+    .nav-links {
+      transition: transform 0.3s ease-in-out;
+    }
+    @media (max-width: 767px) {
+      .nav-links {
+        transform: translateX(100%);
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 70%;
+        background-color: #161b22;
+        padding-top: 5rem;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+      }
+      .nav-links.active {
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+<body class="bg-[#0d1117] text-[#c9d1d9] leading-relaxed">
+
+  <button id="scrollToTopBtn" class="p-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full shadow-lg transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up">
+      <path d="m18 15-6-6-6 6"/>
+      <path d="M12 21V9"/>
+    </svg>
+  </button>
+
+  <header class="sticky top-0 z-50 bg-[#0d1117]/80 backdrop-blur-sm shadow-md">
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.png" alt="ACM NMIMS Logo" class="h-14 w-auto">
+      </a>
+      <ul class="nav-links hidden md:flex space-x-8 text-lg font-medium">
+        <li><a href="index.html#home" class="hover:text-indigo-400 transition-colors">Home</a></li>
+        <li><a href="index.html#about" class="hover:text-indigo-400 transition-colors">About</a></li>
+        <li><a href="events.html" class="hover:text-indigo-400 transition-colors">Events</a></li>
+        <li><a href="team.html" class="hover:text-indigo-400 transition-colors">Team</a></li>
+        <li><a href="index.html#contact" class="hover:text-indigo-400 transition-colors">Contact</a></li>
+      </ul>
+      <button class="nav-toggle md:hidden relative z-50" aria-label="toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-toggle-icon">
+          <line x1="4" x2="20" y1="12" y2="12"></line>
+          <line x1="4" x2="20" y1="6" y2="6"></line>
+          <line x1="4" x2="20" y1="18" y2="18"></line>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <section id="home" class="relative min-h-[60vh] md:min-h-[80vh] flex items-center justify-center text-center overflow-hidden">
+    <canvas id="hero-bg" class="hero-bg"></canvas>
+    
+    <div class="container mx-auto px-4 hero-content text-white">
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-4 fade-in [animation-delay:0.3s]">ACM Student Chapter</h1>
+      <h2 class="text-xl md:text-2xl font-semibold text-indigo-300 mb-6 fade-in [animation-delay:0.6s]">NMIMS Indore</h2>
+      <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 fade-in [animation-delay:0.9s]">We build, learn, and collaborate through workshops, talks, and hackathons.</p>
+      <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 fade-in [animation-delay:1.2s]">
+        <a href="#events" class="btn-primary">Upcoming Events</a>
+        <a href="#team" class="btn-secondary">Meet the Team</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="container mx-auto px-4 py-16">
+    <section id="about" class="section mb-20 fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-indigo-400">About Us</h2>
+      <p class="text-lg text-center max-w-3xl mx-auto leading-relaxed">
+        The ACM Student Chapter at NMIMS Indore promotes computing culture by organizing technical events, mentorship programs, and collaborative projects to empower students.
+      </p>
+    </section>
+
+    <section id="events" class="section mb-20 fade-up [animation-delay:0.2s]">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-indigo-400">Upcoming Events</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <article class="card p-6 bg-[#161b22] rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+          <h3 class="text-2xl font-bold mb-2">Coding Workshop: Web Dev 101</h3>
+          <time datetime="2025-08-25" class="text-sm text-gray-400">Aug 25, 2025</time>
+          <p class="mt-4 text-gray-300">Hands-on workshop covering HTML, CSS, and JavaScript basics.</p>
+          <a href="#" class="btn-link mt-6 inline-block">Register &rarr;</a>
+        </article>
+
+        <article class="card p-6 bg-[#161b22] rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+          <h3 class="text-2xl font-bold mb-2">Tech Talk: AI Ethics</h3>
+          <time datetime="2025-09-02" class="text-sm text-gray-400">Sep 02, 2025</time>
+          <p class="mt-4 text-gray-300">Discussion with industry speakers on responsible AI development.</p>
+          <a href="#" class="btn-link mt-6 inline-block">Register &rarr;</a>
+        </article>
+
+        <article class="card p-6 bg-[#161b22] rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+          <h3 class="text-2xl font-bold mb-2">Hackathon 24H</h3>
+          <time datetime="2025-10-10" class="text-sm text-gray-400">Oct 10, 2025</time>
+          <p class="mt-4 text-gray-300">Build projects and compete for prizes over a 24-hour coding sprint.</p>
+          <a href="#" class="btn-link mt-6 inline-block">Register &rarr;</a>
+        </article>
+      </div>
+    </section>
+
+  
+    <section id="team" class="section mb-20 fade-up [animation-delay:0.4s]">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-indigo-400">Core Team</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+
+        <article class="card team-member text-center p-6 bg-[#161b22] rounded-lg shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
+          <img src="https://placehold.co/150x150/24292e/c9d1d9?text=KP" alt="Karishma Parwani" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-indigo-500"/>
+          <h3 class="text-xl font-bold">Karishma Parwani</h3>
+          <p class="text-gray-400">Core Member</p>
+        </article>
+
+        <article class="card team-member text-center p-6 bg-[#161b22] rounded-lg shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
+          <img src="https://placehold.co/150x150/24292e/c9d1d9?text=KJ" alt="Kanak Jaiswal" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-indigo-500"/>
+          <h3 class="text-xl font-bold">Kanak Jaiswal</h3>
+          <p class="text-gray-400">Core Member</p>
+        </article>
+
+        <article class="card team-member text-center p-6 bg-[#161b22] rounded-lg shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
+          <img src="https://placehold.co/150x150/24292e/c9d1d9?text=VN" alt="Vanshika Nagar" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-indigo-500"/>
+          <h3 class="text-xl font-bold">Vanshika Nagar</h3>
+          <p class="text-gray-400">Core Member</p>
+        </article>
+
+        <article class="card team-member text-center p-6 bg-[#161b22] rounded-lg shadow-lg transition-shadow duration-300 transform hover:-translate-y-1 flex flex-col items-center justify-center">
+          <div class="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl text-indigo-400">
+             <i class="fas fa-users"></i>
+          </div>
+          <h3 class="text-xl font-bold text-indigo-400">Full Team</h3>
+          <a href="team.html" class="btn-link mt-2">View All &rarr;</a>
+        </article>
+      </div>
+    </section>
+
+
+    <section id="contact" class="section fade-up [animation-delay:0.6s]">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-indigo-400">Contact Us</h2>
+      <div class="text-center">
+        <p class="text-lg mb-4">Email: <a href="mailto:acm@nmimsindore.edu.in" class="text-indigo-400 hover:underline">acm@nmimsindore.edu.in</a></p>
+        <div class="social-links flex justify-center space-x-6">
+          <a href="#" aria-label="Twitter" class="text-xl hover:text-indigo-400 transition-colors">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" aria-label="Instagram" class="text-xl hover:text-indigo-400 transition-colors">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" aria-label="GitHub" class="text-xl hover:text-indigo-400 transition-colors">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-[#161b22] py-8 text-center mt-20">
+    <div class="container mx-auto px-4">
+      <p class="text-gray-400">&copy; 2025 ACM Student Chapter - NMIMS Indore. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const fadeUpElements = document.querySelectorAll('.fade-up');
+      
+      const isElementInViewport = (el) => {
+        const rect = el.getBoundingClientRect();
+        return (
+          rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.bottom >= 0
+        );
+      };
+      
+      const handleScroll = () => {
+        for (const el of fadeUpElements) {
+          if (isElementInViewport(el) && !el.classList.contains('animated')) {
+            el.classList.add('animated');
+            el.style.animationDelay = el.dataset.delay || '0s';
+            el.style.animationName = 'fadeUp';
+            el.style.opacity = '1';
+          }
+        }
+      };
+      
+      setTimeout(() => {
+        handleScroll();
+      }, 100);
+      
+      window.addEventListener('scroll', handleScroll);
+      
+      const navToggle = document.querySelector('.nav-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const links = navLinks.querySelectorAll('a');
+        links.forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+          });
+        });
+      });
+      
+      const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          scrollToTopBtn.classList.add('show');
+        } else {
+          scrollToTopBtn.classList.remove('show');
+        }
+      });
+      scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      const canvas = document.getElementById('hero-bg');
+      const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+      
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      
+      const logoUrl = 'http://googleusercontent.com/file_content/1';
+      const textureLoader = new THREE.TextureLoader();
+      const logoTexture = textureLoader.load(logoUrl, (texture) => {
+        const logoGeometry = new THREE.PlaneGeometry(10, 10);
+        const logoMaterial = new THREE.MeshBasicMaterial({
+          map: texture,
+          transparent: true,
+        });
+        const logoMesh = new THREE.Mesh(logoGeometry, logoMaterial);
+        logoMesh.position.z = -15;
+        logoMesh.rotation.y = Math.PI * 0.1;
+        scene.add(logoMesh);
+      });
+      
+      const particleCount = 500;
+      const particles = new THREE.BufferGeometry();
+      const positions = new Float32Array(particleCount * 3);
+      
+      for (let i = 0; i < particleCount * 3; i += 3) {
+        positions[i] = (Math.random() - 0.5) * 200;
+        positions[i+1] = (Math.random() - 0.5) * 200;
+        positions[i+2] = (Math.random() - 0.5) * 200;
+      }
+      
+      particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      
+      const particleMaterial = new THREE.PointsMaterial({
+        color: 0x4f46e5,
+        size: 0.5,
+        transparent: true,
+        opacity: 0.8
+      });
+      
+      const particleSystem = new THREE.Points(particles, particleMaterial);
+      scene.add(particleSystem);
+      
+      camera.position.z = 5;
+      
+      const animate = () => {
+        requestAnimationFrame(animate);
+        particleSystem.rotation.x += 0.0005;
+        particleSystem.rotation.y += 0.0005;
+        renderer.render(scene, camera);
+      };
+      
+      animate();
+    });
+  </script>
+  <script src="js/script.js"></script>
+  
+  <style>
+    .btn-primary {
+      @apply px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-[#0d1117];
+    }
+    .btn-secondary {
+      @apply px-6 py-3 bg-transparent border-2 border-indigo-600 text-indigo-300 font-semibold rounded-lg shadow-md hover:bg-indigo-600 hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-[#0d1117];
+    }
+    .btn-link {
+      @apply text-indigo-400 font-semibold hover:text-indigo-300 transition-colors duration-300;
+    }
+  </style>
+
+</body>
+</html>
